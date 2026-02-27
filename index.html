@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mon Tracker</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <button id="prevBtn" class="navBtn" aria-label="Mois précédent">←</button>
+      <div class="monthTitle">
+        <span id="monthLabel">Mois</span>
+      </div>
+      <button id="nextBtn" class="navBtn" aria-label="Mois suivant">→</button>
+    </header>
+
+    <section class="calendar">
+      <div class="dow">
+        <div>L</div><div>M</div><div>M</div><div>J</div><div>V</div><div>S</div><div>D</div>
+      </div>
+      <div id="grid" class="grid"></div>
+    </section>
+
+    <footer class="legend">
+      <div class="legendRow">
+        <span class="dot c5"></span><span>5/5 validé</span>
+      </div>
+      <div class="legendRow">
+        <span class="dot c4"></span><span>4/5</span>
+      </div>
+      <div class="legendRow">
+        <span class="dot c3"></span><span>3/5</span>
+      </div>
+      <div class="legendRow">
+        <span class="dot c2"></span><span>2/5</span>
+      </div>
+      <div class="legendRow">
+        <span class="dot c1"></span><span>1/5</span>
+      </div>
+      <div class="legendRow">
+        <span class="dot c0"></span><span>0/5</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal jour -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modalCard">
+      <div class="modalHeader">
+        <div>
+          <div class="modalTitle">Checklist</div>
+          <div id="modalDate" class="modalDate">—</div>
+        </div>
+        <button id="closeModal" class="closeBtn" aria-label="Fermer">✕</button>
+      </div>
+
+      <div class="checks">
+        <label class="checkItem">
+          <input type="checkbox" id="chk_sport" />
+          <span>Sport</span>
+        </label>
+
+        <label class="checkItem">
+          <input type="checkbox" id="chk_creatine" />
+          <span>Créatine</span>
+        </label>
+
+        <div class="checkGroup">
+          <div class="groupTitle">Magnésium</div>
+          <label class="checkItem sub">
+            <input type="checkbox" id="chk_mag_am" />
+            <span>Matin</span>
+          </label>
+          <label class="checkItem sub">
+            <input type="checkbox" id="chk_mag_pm" />
+            <span>Soir</span>
+          </label>
+          <div class="groupHint">Compte comme validé seulement si Matin + Soir.</div>
+        </div>
+
+        <label class="checkItem">
+          <input type="checkbox" id="chk_whey" />
+          <span>Whey</span>
+        </label>
+
+        <label class="checkItem">
+          <input type="checkbox" id="chk_water" />
+          <span>1,5L d’eau minimum</span>
+        </label>
+      </div>
+
+      <div class="modalFooter">
+        <div id="scoreLabel" class="scoreLabel">0/5</div>
+        <button id="saveBtn" class="saveBtn">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
